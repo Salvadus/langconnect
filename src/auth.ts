@@ -24,9 +24,16 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       return token;
     },
     session({ session, token }) {
-      session.user.id =
-        token.googleSub || (typeof token.sub === "string" ? token.sub : "");
-      return session;
+      const googleSub =
+        typeof token.googleSub === "string" ? token.googleSub : "";
+      const tokenSub = typeof token.sub === "string" ? token.sub : "";
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          id: googleSub || tokenSub,
+        },
+      };
     },
     authorized({ auth: session, request }) {
       const path = request.nextUrl.pathname;
