@@ -60,7 +60,8 @@ Sair no MFE dispara `mfe:signOut` (mesmo window = `CustomEvent`; iframe fallback
 - CMS carrega `{NEXT_PUBLIC_MFE_PLATAFORMA_IA_URL}/remoteEntry.js` (`@module-federation/runtime`).
 - Catálogo: `src/mfe/catalog.ts`, nome `plataformaIa`.
 - Em **dev** (origin localhost), o CMS injeta o preamble Vite (`/@react-refresh` + `/@vite/client`) antes do `loadRemote`.
-- Em **produção** o preamble **não** roda: `/@vite/client` na Vercel devolve `index.html` e o loader travava (MFE “não carrega”, pior no celular).
+- Em **produção** o preamble **não** roda (nem se a env ainda for `localhost:5173`). Sem isso o celular tenta `/@vite/client` e mostra “Não carregou o preamble do Vite”.
+- Se o CMS não for localhost e a env do remote for localhost, o loader usa `https://plataforma-ia-umber.vercel.app`.
 
 `VITE_MFE_ORIGIN` vira `base` + `publicPath` do remote. Sem isso no deploy, o `remoteEntry` aponta para `localhost:5173`.
 

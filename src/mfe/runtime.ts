@@ -24,14 +24,19 @@ export function initMfeRuntime(): void {
   ready = true;
 }
 
+function pageIsLocal(): boolean {
+  if (typeof window === "undefined") return false;
+  return /localhost|127\.0\.0\.1/.test(window.location.hostname);
+}
+
 function isViteDevOrigin(origin: string): boolean {
   return /localhost|127\.0\.0\.1/.test(origin);
 }
 
 export async function loadMfeMount(name: MfeName): Promise<MfeMount> {
   const src = getMfeSrc(name);
-  // Preamble só no Vite dev. Em produção /@vite/client vira index.html e o loader trava.
-  if (isViteDevOrigin(src)) {
+  // Preamble só com CMS e remote no Vite local. No celular/Vercel o /@vite/client não existe.
+  if (pageIsLocal() && isViteDevOrigin(src)) {
     await installViteReactPreamble(src);
   }
   initMfeRuntime();
