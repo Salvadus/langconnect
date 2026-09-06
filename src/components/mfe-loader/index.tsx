@@ -68,7 +68,7 @@ export default function MfeLoader({ name, props }: MfeLoaderProps) {
     <div className={styles.shell}>
       {error ? (
         <p className={styles.error}>
-          Não carregou {title}. Suba o Vite do remote e recarregue.
+          Não carregou {title}.
           <br />
           {error}
         </p>

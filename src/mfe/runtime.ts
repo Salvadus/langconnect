@@ -24,8 +24,16 @@ export function initMfeRuntime(): void {
   ready = true;
 }
 
+function isViteDevOrigin(origin: string): boolean {
+  return /localhost|127\.0\.0\.1/.test(origin);
+}
+
 export async function loadMfeMount(name: MfeName): Promise<MfeMount> {
-  await installViteReactPreamble(getMfeSrc(name));
+  const src = getMfeSrc(name);
+  // Preamble só no Vite dev. Em produção /@vite/client vira index.html e o loader trava.
+  if (isViteDevOrigin(src)) {
+    await installViteReactPreamble(src);
+  }
   initMfeRuntime();
   const expose = MFE_CATALOG[name].expose;
   const mod = (await loadRemote(`${name}/${expose}`)) as {
