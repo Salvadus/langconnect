@@ -1,0 +1,16 @@
+.shell,
+.host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+
+.error {
+  margin: 0;
+  padding: 16px 20px;
+  color: #6a5300;
+  background: #fff6e5;
+  font-size: 14px;
+  line-height: 1.5;
+}

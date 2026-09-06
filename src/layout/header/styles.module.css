@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #111;
+  padding: 10px 16px;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo {
+  display: block;
+  height: 36px;
+  width: auto;
+}
+
+.rightArea {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user {
+  font-size: 13px;
+  color: #ddd;
+}

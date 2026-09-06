@@ -1,0 +1,41 @@
+.wrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 24px;
+  background-color: #000;
+}
+
+.logo {
+  display: block;
+  height: 56px;
+  width: auto;
+}
+
+.entrar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 112px;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #b8a1d7;
+  color: #1a1024;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.entrar:hover {
+  background-color: #c9b4e6;
+}
+
+.form {
+  margin: 0;
+}

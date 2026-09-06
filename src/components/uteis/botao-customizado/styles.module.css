@@ -1,0 +1,71 @@
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.botao:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.variant_primary {
+  background-color: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+.variant_primary:hover:not(:disabled) {
+  background-color: #333;
+  border-color: #333;
+}
+
+.variant_secondary {
+  background-color: #fff;
+  color: #222;
+  border-color: #ccc;
+}
+
+.variant_secondary:hover:not(:disabled) {
+  background-color: #f5f5f5;
+  border-color: #999;
+}
+
+.variant_danger {
+  background-color: #b42318;
+  color: #fff;
+  border-color: #b42318;
+}
+
+.variant_danger:hover:not(:disabled) {
+  background-color: #912018;
+}
+
+.variant_ghost {
+  background-color: transparent;
+  color: #222;
+  border-color: transparent;
+}
+
+.variant_ghost:hover:not(:disabled) {
+  background-color: #f0f0f0;
+}
+
+.variant_success {
+  background-color: #00984a;
+  color: #fff;
+  border-color: #00984a;
+}
+
+.variant_success:hover:not(:disabled) {
+  background-color: #007a3a;
+}
