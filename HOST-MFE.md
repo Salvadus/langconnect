@@ -76,9 +76,10 @@ Sair no MFE dispara `mfe:signOut` (mesmo window = `CustomEvent`; iframe fallback
 | `middleware.ts` | Protege só `/plataforma/*` |
 | `src/session/toHostProps.ts` | Google → props do MFE |
 | `src/mfe/*` | Catálogo, runtime, preamble |
-| `src/components/mfe-loader` | Monta o remote + escuta signOut |
+| `src/components/mfe-loader` | Monta o remote + escuta signOut; host `height: auto` |
 | `src/components/landing` | Tela de login (logo + Entrar) |
-| `src/views/plataforma` | Gate + `MfeLoader` |
+| `src/views/plataforma` | Gate + `MfeLoader`; shell `fixed` + `overflow: auto` (scroll no celular) |
+| `app/layout.tsx` | Viewport `cover` + `interactiveWidget: resizes-content` |
 | `public/logo-langconect.png` | Logo recortado, fundo transparente |
 
 MFE (outro repo): `src/mfe-mount.tsx`, `src/session/HostSessionGate.tsx`, `src/session/handshake.ts`, `vite.config.ts` (federation).
@@ -163,7 +164,7 @@ Rota ADM: `PUT /system/settings/cors` (header `X-User-Email` de um admin).
 - FAB **Agentes Chat** (roxo `#5c3d8a`), escondido com o painel aberto e em `/usuario-nao-cadastrado`
 - Footer `#b8a1d7`, © 2026 LangConnect
 - `team_user` sem times → `/usuario-nao-cadastrado`
-- Mobile do MFE: **não** ajustar agora (título/botões sobrepõem)
+- Mobile do shell (06/09): rodapé em `100dvh`, chat `inset: 0`, abas Conversa/Log/JSON. Detalhe no MFE: `plataforma-ia/HOST-CMS.md` (seção *Mobile do host / shell*). **Não** é bloco I/J.
 
 ---
 
